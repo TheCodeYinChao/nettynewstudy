@@ -37,9 +37,6 @@ public class EchoClient {
                         }
                     });
             ChannelFuture f = b.connect(host,port).sync();
-
-            f.channel().writeAndFlush(Unpooled.copiedBuffer("yaaaaa$_".getBytes()));
-            f.channel().writeAndFlush(Unpooled.copiedBuffer("yaaaaa$_".getBytes()));
             f.channel().closeFuture().sync();
         } catch (InterruptedException e) {
             e.printStackTrace();

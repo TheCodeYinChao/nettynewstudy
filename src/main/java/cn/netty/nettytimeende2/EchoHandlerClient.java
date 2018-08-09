@@ -13,7 +13,8 @@ import io.netty.channel.ChannelHandlerContext;
 public class EchoHandlerClient extends ChannelHandlerAdapter {
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        ctx.writeAndFlush("aaaddd$_");
+        ctx.channel().writeAndFlush(Unpooled.copiedBuffer("yaaaaa$_".getBytes()));
+        ctx.channel().writeAndFlush(Unpooled.copiedBuffer("yaaaaa$_".getBytes()));
     }
 
     @Override
