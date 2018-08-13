@@ -23,7 +23,7 @@ public class TimeClientHandler extends ChannelHandlerAdapter {
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        ctx.writeAndFlush(firstMessage);
+        ctx.channel().writeAndFlush(firstMessage);
     }
 
 
