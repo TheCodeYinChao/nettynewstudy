@@ -1,6 +1,7 @@
 package cn.netty.serialize9;
 
 import io.netty.handler.codec.marshalling.*;
+import org.jboss.marshalling.Marshaller;
 import org.jboss.marshalling.MarshallerFactory;
 import org.jboss.marshalling.Marshalling;
 import org.jboss.marshalling.MarshallingConfiguration;
@@ -30,5 +31,12 @@ public class MarshallingCodeCFactory {
         MarshallerProvider provider = new DefaultMarshallerProvider(marshallerFactory, configuration);
         MarshallingEncoder encoder = new MarshallingEncoder(provider);
         return encoder;
+    }
+
+    public static Marshaller bulidMarshalling() throws Exception{
+        MarshallerFactory marshallerFactory = Marshalling.getProvidedMarshallerFactory("serial");
+        MarshallingConfiguration configuration = new MarshallingConfiguration();
+        configuration.setVersion(5);
+        return marshallerFactory.createMarshaller(configuration);
     }
 }
